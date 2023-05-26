@@ -1,5 +1,21 @@
 # Coding Challenge
 
+## Get Started
+
+Run `docker-compose up` to start the db and service.
+
+## Testing
+
+1. Run `docker-compose up postgres` to start the database before running the tests
+2. Run `go test ./...` to run all tests
+
+## Questions
+
+1. Regarding "near". I just went with 50 miles for now. If I was doing this at work I would ask the PM or stakeholder for more details on that. What should it be?
+
+
+-------------------------------------------------
+
 Thanks for applying for a backend role at Outdoorsy. We've put together this code challenge, which should take around 3-4 hours to complete.
 
 ## Functionality

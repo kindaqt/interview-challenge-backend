@@ -1,14 +1,28 @@
-version: '3.6'
+version: '3.8'
 services:
   postgres:
     image: mdillon/postgis:11
     restart: always
     environment:
-      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_HOST=127.0.0.1
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=testingwithrentals
     ports:
-      - "5434:5432"
+      - "5432:5432"
     volumes:
       - ./sql-init.sql:/docker-entrypoint-initdb.d/sql-init.sql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file: .env
+    environment:
+      - GIN_MODE=release
+      - POSTGRES_HOST=postgres
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres

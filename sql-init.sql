@@ -1,3 +1,8 @@
+-- CASCASE required for installing earthdistance
+CREATE EXTENSION IF NOT EXISTS cube CASCADE;
+-- earthdistance for finding if RV is near a lat,lng
+CREATE EXTENSION IF NOT EXISTS earthdistance;
+
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     first_name text,
